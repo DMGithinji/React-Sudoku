@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { unregister } from './core';
-import { GlobalStyles } from './styles';
+import { GlobalStyles, theme } from './styles';
+import { Content, Title, Card } from './components';
+import { ThemeProvider } from 'styled-components';
 
 ReactDOM.render(
-  <>
+  <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <div>Hello World</div>
-  </>,
+    <Content data-cy="content">
+      <Title data-cy="title">Sudoku</Title>
+      <Card data-cy="card">This is a work in progress</Card>
+    </Content>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 

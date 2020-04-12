@@ -1,6 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export default createGlobalStyle`
+${({ theme }) => css`
   html {
     height: 100vh;
 
@@ -11,8 +12,8 @@ export default createGlobalStyle`
       margin: 0;
 
       #root {
-        background-color: #fff;
-        color: #282c34;
+        background-color: ${theme.colors.black};
+        color: ${theme.colors.white};
         display: flex;
         font-family: sans-serif;
         height: 100vh;
@@ -21,4 +22,5 @@ export default createGlobalStyle`
       }
     }
   }
-`
+`}
+`;
