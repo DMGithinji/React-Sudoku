@@ -10,10 +10,10 @@ ${({ theme }) => css`
       flex-direction: column;
       height: 100vh;
       margin: 0;
-
+      background-color: ${theme.colors.background};
+      color: ${theme.colors.fontColor};
+      
       #root {
-        background-color: ${theme.colors.black};
-        color: ${theme.colors.white};
         display: flex;
         font-family: sans-serif;
         height: 100vh;

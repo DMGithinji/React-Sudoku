@@ -2,16 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { unregister } from './core';
-import { GlobalStyles, theme } from './styles';
-import { Content, Title, Card } from './components';
+import { GlobalStyles, darkTheme } from './styles';
+import { Content, Title, Card, Grid } from './components';
 import { ThemeProvider } from 'styled-components';
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={darkTheme}>
     <GlobalStyles />
     <Content data-cy="content">
       <Title data-cy="title">Sudoku</Title>
-      <Card data-cy="card">This is a work in progress</Card>
+      <Card data-cy="card">
+        <Grid />
+      </Card>
     </Content>
   </ThemeProvider>,
   document.getElementById('root')
