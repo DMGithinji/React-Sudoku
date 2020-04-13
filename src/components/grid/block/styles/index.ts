@@ -25,7 +25,8 @@ export const Container = styled.div`
     }
 
     &:hover {
-      background-color: ${theme.colors.hoverColor}
+      background-color: ${theme.colors.hoverColor};
+      color: ${theme.colors.hoverFontColor};
     }
   `}
 `

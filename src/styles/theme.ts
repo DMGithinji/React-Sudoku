@@ -3,6 +3,7 @@ export const darkTheme =  {
     background: '#282c34',
     fontColor: '#fff',
     hoverColor: '#555',
+    hoverFontColor: '#fff',
     mainBorderColor: '#fff',
     lightBorderColor: '#fdfdfd',
   },
@@ -11,11 +12,12 @@ export const darkTheme =  {
 
 export const lightTheme =  {
   colors: {
-    background: '#f9f9f9',
+    background: '#f9f9f9f',
     fontColor: '#282c34',
-    hoverColor: '#caf3fe',
-    mainBorderColor: '#282c34',
-    lightBorderColor: '#555',
+    hoverColor: 'rgb(94,158,255)',
+    hoverFontColor: '#fff',
+    mainBorderColor: '#222',
+    lightBorderColor: '#222',
   },
   transition: '0.3s',
 };

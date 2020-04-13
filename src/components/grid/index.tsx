@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
 import { Container, Row } from './styles';
-import Block from './block';
+import Block from './block'
 
-export const Grid: FC = () => {
+const Grid: FC = () => {
   //Stuff on the way
 
   return (
@@ -12,7 +12,7 @@ export const Grid: FC = () => {
         [...Array(9)].map((_, rowIndex) => (
           <Row data-cy="grid-row-container">
             {React.Children.toArray(
-              [...Array(9)].map((_, colIndex) => <Block  rowIndex={rowIndex} colIndex={colIndex}/>)
+              [...Array(9)].map((_, colIndex) => <Block rowIndex={rowIndex} colIndex={colIndex}/>)
             )}
           </Row>
         ))
@@ -20,3 +20,5 @@ export const Grid: FC = () => {
     </Container>
   );
 };
+
+export default Grid;

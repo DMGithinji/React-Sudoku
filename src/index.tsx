@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { unregister } from './core';
-import { GlobalStyles, darkTheme } from './styles';
+import { GlobalStyles, lightTheme } from './styles';
 import { Content, Title, Card, Grid } from './components';
 import { ThemeProvider } from 'styled-components';
 
 ReactDOM.render(
-  <ThemeProvider theme={darkTheme}>
+  <ThemeProvider theme={lightTheme}>
     <GlobalStyles />
     <Content data-cy="content">
       <Title data-cy="title">Sudoku</Title>
