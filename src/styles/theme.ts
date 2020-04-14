@@ -14,7 +14,7 @@ export const lightTheme =  {
   colors: {
     background: '#f9f9f9f',
     fontColor: '#282c34',
-    hoverColor: 'rgb(94,158,255)',
+    hoverColor: '#222',
     hoverFontColor: '#fff',
     mainBorderColor: '#222',
     lightBorderColor: '#222',

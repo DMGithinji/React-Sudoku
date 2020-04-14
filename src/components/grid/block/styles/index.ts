@@ -7,7 +7,7 @@ export const Container = styled.div`
     flex-shrink: 0;
     flex-basis: 0;    
     align-items: center;
-    justify-content: horizontal;
+    justify-content: center;
     background-color: ${theme.colors.background};
     border: 1px solid ${theme.colors.lightBorderColor};
     color: ${theme.colors.fontColor};

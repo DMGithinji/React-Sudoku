@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { unregister } from './core';
-import { GlobalStyles, lightTheme } from './styles';
-import { Content, Title, Card, Grid } from './components';
+import { unregister } from 'core';
+import { GlobalStyles, lightTheme } from 'styles';
+import { Content, Title, Card, Grid } from 'components';
 import { ThemeProvider } from 'styled-components';
 
 ReactDOM.render(
