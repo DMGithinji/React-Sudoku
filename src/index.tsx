@@ -1,22 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { unregister, configureStore } from "core";
+import { GlobalStyles, darkTheme } from "styles";
+import { Content, Title, Card, Grid } from "components";
+import { ThemeProvider } from "styled-components";
 
-import { unregister } from 'core';
-import { GlobalStyles, lightTheme } from 'styles';
-import { Content, Title, Card, Grid } from 'components';
-import { ThemeProvider } from 'styled-components';
+const store = configureStore()
 
 ReactDOM.render(
-  <ThemeProvider theme={lightTheme}>
+  <ThemeProvider theme={darkTheme}>
     <GlobalStyles />
-    <Content data-cy="content">
-      <Title data-cy="title">Sudoku</Title>
-      <Card data-cy="card">
-        <Grid />
-      </Card>
-    </Content>
+    <Provider store={store}>
+      <Content data-cy="content">
+        <Title data-cy="title">Sudoku</Title>
+        <Card data-cy="card">
+          <Grid />
+        </Card>
+      </Content>
+    </Provider>
   </ThemeProvider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
