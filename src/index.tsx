@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { unregister, configureStore } from "core";
-import { GlobalStyles, darkTheme } from "styles";
+import { GlobalStyles, lightTheme } from "styles";
 import { Content, Title, Card, Grid } from "components";
 import { ThemeProvider } from "styled-components";
 
 const store = configureStore()
 
 ReactDOM.render(
-  <ThemeProvider theme={darkTheme}>
+  <ThemeProvider theme={lightTheme}>
     <GlobalStyles />
     <Provider store={store}>
       <Content data-cy="content">

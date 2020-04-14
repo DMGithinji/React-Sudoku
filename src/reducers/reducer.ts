@@ -13,6 +13,11 @@ function reducer(state = initialState, action: AnyAction) {
         ...state,
         grid: createFilledSudoku(),
       }
+    case types.SELECT_BLOCK:
+      return {
+        ...state,
+        selectedBlock: action.coords,
+      }
     default:
       return state;
   }
