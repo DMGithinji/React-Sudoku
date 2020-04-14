@@ -1,14 +1,16 @@
-import React, { FC } from "react";
-import { GRID } from "typings";
-import { Container, Row } from "./styles";
-import Block from "./block";
-import { createFilledSudoku } from "utils";
+import React, { FC, useEffect, Dispatch, useCallback } from 'react';
+import { Container, Row } from './styles';
+import Block from './block';
+import { useDispatch } from 'react-redux';
+import { createGrid } from 'reducers';
+import { AnyAction } from 'redux';
 
 const Grid: FC = () => {
-  //Stuff on the way
-
-  const grid: GRID = createFilledSudoku();
-  console.log(grid);
+  const dispatch = useDispatch<Dispatch<AnyAction>>();
+  const create = useCallback(() => dispatch(createGrid()), [dispatch]);
+  useEffect(() => {
+    create();
+  }, [create]);
 
   return (
     <Container data-cy="grid-container">

@@ -1,9 +1,18 @@
-import { AnyAction } from "redux";
+import { AnyAction } from 'redux';
+import { createFilledSudoku } from 'utils';
+import { IReducer } from './interfaces';
+import * as types from './types';
 
-const initialState = {};
+
+const initialState: IReducer = {};
 
 function reducer(state = initialState, action: AnyAction) {
   switch (action.type) {
+    case types.CREATE_GRID:
+      return {
+        ...state,
+        grid: createFilledSudoku(),
+      }
     default:
       return state;
   }
