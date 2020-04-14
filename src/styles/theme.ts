@@ -16,12 +16,12 @@ export const lightTheme =  {
   colors: {
     background: '#f9f9f9f',
     fontColor: '#282c34',
-    hoverColor: '#222',
-    hoverFontColor: '#fff',
+    hoverColor: '#ddd',
+    hoverFontColor: '#282c34',
     selectedBackground: '#222',
     selectedFontColor: '#fff',
     mainBorderColor: '#222',
     lightBorderColor: '#222',
   },
-  transition: '0.3s',
+  transition: '0.1s',
 };
