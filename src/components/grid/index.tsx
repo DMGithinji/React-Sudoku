@@ -5,16 +5,17 @@ import Block from "./block";
 import { useDispatch, useSelector } from "react-redux";
 import { createGrid, IReducer, selectBlock, fillBlock } from "reducers";
 import { AnyAction } from "redux";
-import { INDEX, BLOCK_COORDS, N, NUMBERS } from "typings";
+import { INDEX, BLOCK_COORDS, N, NUMBERS, GRID } from "typings";
 
 interface IState {
   selectedBlock?: BLOCK_COORDS;
   selectedValue: N;
+  solvedGrid?: GRID;
 }
 
 const Grid: FC = () => {
   const state = useSelector<IReducer, IState>(
-    ({ selectedBlock, workingGrid }) => ({
+    ({ selectedBlock, solvedGrid, workingGrid }) => ({
       selectedBlock,
       selectedValue:
         workingGrid && selectedBlock
@@ -91,8 +92,8 @@ const Grid: FC = () => {
   useMousetrap("9", () => fill(9));
 
   useEffect(() => {
-    create();
-  }, [create]);
+    if(state.solvedGrid) create();
+  }, [create, state.solvedGrid]);
 
   return (
     <Container data-cy="grid-container">
