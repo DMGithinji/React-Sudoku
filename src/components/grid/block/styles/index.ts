@@ -33,7 +33,7 @@ export const Container = styled.div<IProps>`
     &:hover {
       background-color: ${active
         ? theme.colors.selectedBackground
-        : theme.colors.hoverColor};
+        : theme.colors.hoverFontBackgroundColor};
       color: ${active
         ? theme.colors.selectedFontColor
         : theme.colors.hoverFontColor};

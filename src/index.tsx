@@ -2,20 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { unregister, configureStore } from "core";
-import { GlobalStyles, lightTheme } from "styles";
-import { Content, Title, Card, Grid } from "components";
+import { GlobalStyles, darkTheme } from "styles";
+import { Content, Title, Card, Grid, Numbers } from "components";
 import { ThemeProvider } from "styled-components";
 
 const store = configureStore()
 
 ReactDOM.render(
-  <ThemeProvider theme={lightTheme}>
+  <ThemeProvider theme={darkTheme}>
     <GlobalStyles />
     <Provider store={store}>
       <Content data-cy="content">
         <Title data-cy="title">Sudoku</Title>
         <Card data-cy="card">
           <Grid />
+          <Numbers />
         </Card>
       </Content>
     </Provider>
