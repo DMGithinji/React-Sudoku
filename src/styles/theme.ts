@@ -5,7 +5,7 @@ export const darkTheme =  {
     hoverColor: '#555',
     hoverFontColor: '#fff',
     selectedBackground: '#fff',
-    selectedFontColor: '#282c34',
+    selectedFontColor: '#222',
     mainBorderColor: '#fff',
     lightBorderColor: '#fdfdfd',
   },

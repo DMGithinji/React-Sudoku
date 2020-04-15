@@ -1,10 +1,10 @@
-import React, { FC, Dispatch } from 'react';
+import React, { FC, Dispatch } from "react";
 
-import { Container } from './styles';
-import { useSelector, useDispatch } from 'react-redux';
-import { IReducer, selectBlock } from 'reducers';
-import { N, INDEX } from 'typings';
-import { AnyAction } from 'redux';
+import { Container } from "./styles";
+import { useSelector, useDispatch } from "react-redux";
+import { IReducer, selectBlock } from "reducers";
+import { N, INDEX } from "typings";
+import { AnyAction } from "redux";
 
 interface IProps {
   colIndex: INDEX;
@@ -12,17 +12,22 @@ interface IProps {
 }
 
 interface IState {
-  isActive: boolean;
-  value: N;
+  isActive: boolean; // Active Block
+  value: N; // User input value
+  isPuzzleValue: boolean; // Part of original puzzle
 }
 
 const Block: FC<IProps> = ({ colIndex, rowIndex }) => {
-  const state = useSelector<IReducer, IState>(({ workingGrid, selectedBlock }) => ({
-    isActive: selectedBlock
-      ? selectedBlock[0] === rowIndex && selectedBlock[1] === colIndex
-      : false,
-    value: workingGrid ? workingGrid[rowIndex][colIndex] : 0,
-  }));
+  const state = useSelector<IReducer, IState>(
+    ({ workingGrid, challengeGrid, selectedBlock }) => ({
+      isActive: selectedBlock
+        ? selectedBlock[0] === rowIndex && selectedBlock[1] === colIndex
+        : false,
+      value: workingGrid ? workingGrid[rowIndex][colIndex] : 0,
+      isPuzzleValue:
+        challengeGrid && challengeGrid[rowIndex][colIndex] !== 0 ? true : false
+    })
+  );
   const dispatch = useDispatch<Dispatch<AnyAction>>();
 
   function handleClick() {
@@ -32,10 +37,11 @@ const Block: FC<IProps> = ({ colIndex, rowIndex }) => {
   return (
     <Container
       active={state.isActive}
+      isPuzzleValue={state.isPuzzleValue}
       data-cy={`block-${rowIndex}-${colIndex}`}
       onClick={handleClick}
     >
-      {state.value === 0 ? '' : state.value}
+      {state.value === 0 ? "" : state.value}
     </Container>
   );
 };

@@ -9,26 +9,29 @@ import { INDEX, BLOCK_COORDS, N, NUMBERS } from "typings";
 
 interface IState {
   selectedBlock?: BLOCK_COORDS;
-  selectedValue: N
+  selectedValue: N;
 }
 
 const Grid: FC = () => {
-  const state = useSelector<IReducer, IState>(({ 
-    selectedBlock, workingGrid }) => ({
-    selectedBlock,
-    selectedValue: workingGrid && selectedBlock 
-      ? workingGrid[selectedBlock[0]][selectedBlock[1]] 
-      : 0,
-  }));
+  const state = useSelector<IReducer, IState>(
+    ({ selectedBlock, workingGrid }) => ({
+      selectedBlock,
+      selectedValue:
+        workingGrid && selectedBlock
+          ? workingGrid[selectedBlock[0]][selectedBlock[1]]
+          : 0
+    })
+  );
   const dispatch = useDispatch<Dispatch<AnyAction>>();
   const create = useCallback(() => dispatch(createGrid()), [dispatch]);
 
-  const fill = useCallback((n: NUMBERS) => {
-    if(state.selectedBlock && state.selectedValue === 0 )
-      dispatch(fillBlock(n, state.selectedBlock))
+  const fill = useCallback(
+    (n: NUMBERS) => {
+      if (state.selectedBlock && state.selectedValue === 0)
+        dispatch(fillBlock(n, state.selectedBlock));
     },
-    [dispatch , state.selectedBlock, state.selectedValue]
-  )
+    [dispatch, state.selectedBlock, state.selectedValue]
+  );
 
   function moveDown() {
     if (state.selectedBlock && state.selectedBlock[0] < 8)
@@ -70,13 +73,13 @@ const Grid: FC = () => {
       );
   }
 
-  // Navigation inputs
+  // Navigation controls
   useMousetrap("down", moveDown);
   useMousetrap("left", moveLeft);
   useMousetrap("right", moveRight);
   useMousetrap("up", moveUp);
 
-  // Keyboard inputs
+  // Keyboard controls
   useMousetrap("1", () => fill(1));
   useMousetrap("2", () => fill(2));
   useMousetrap("3", () => fill(3));
@@ -86,7 +89,6 @@ const Grid: FC = () => {
   useMousetrap("7", () => fill(7));
   useMousetrap("8", () => fill(8));
   useMousetrap("9", () => fill(9));
-
 
   useEffect(() => {
     create();

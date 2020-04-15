@@ -17,7 +17,7 @@ function reducer(state = initialState, action: AnyAction) {
       const solvedGrid = createFilledSudoku();
       const gridCopy = copyGrid(solvedGrid);
       const challengeGrid = removeNumbers(gridCopy);
-      const workingGrid = challengeGrid;
+      const workingGrid = copyGrid(challengeGrid);
       return {
         ...state,
         solvedGrid,
@@ -37,7 +37,6 @@ function reducer(state = initialState, action: AnyAction) {
           alert("Incorrect input! Are you guessing?");
           return state;
         }
-
         state.workingGrid[action.coords[0]][action.coords[1]] = action.value;
         if (compareArrays(state.workingGrid, state.solvedGrid)) {
           alert("COMPLETED");
