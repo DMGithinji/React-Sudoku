@@ -1,5 +1,4 @@
-import { BLOCK_COORDS } from './../typings/index';
-import { GRID } from 'typings';
+import { BLOCK_COORDS, GRID } from 'typings';
 
 export interface IReducer {
   challengeGrid?: GRID; //grid to be solved
