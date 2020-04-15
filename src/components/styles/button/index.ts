@@ -10,7 +10,7 @@ export const Button = styled.button`
     border-radius: 2px;
     border: 2px solid ${theme.colors.buttonBorderColor};
     height: 40px;
-    max-width: 60px;
+    /* max-width: 60px; */
     min-height: 40px;
     margin: 4px 2px;
     padding: 0;

@@ -3,10 +3,17 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { unregister, configureStore } from "core";
 import { GlobalStyles, darkTheme } from "styles";
-import { Content, Title, Card, Grid, Numbers } from "components";
+import {
+  Content,
+  Title,
+  Card,
+  Grid,
+  NumbersInput,
+  NewGameButton
+} from "components";
 import { ThemeProvider } from "styled-components";
 
-const store = configureStore()
+const store = configureStore();
 
 ReactDOM.render(
   <ThemeProvider theme={darkTheme}>
@@ -15,8 +22,9 @@ ReactDOM.render(
       <Content data-cy="content">
         <Title data-cy="title">Sudoku</Title>
         <Card data-cy="card">
+          <NewGameButton />
           <Grid />
-          <Numbers />
+          <NumbersInput />
         </Card>
       </Content>
     </Provider>
