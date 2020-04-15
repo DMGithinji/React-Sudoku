@@ -1,7 +1,8 @@
+import { DefaultTheme } from 'styled-components';
 import { BLOCK_COORDS, GRID } from 'typings';
 
 export interface IReducer {
-  appTheme: "lightTheme" | "darkTheme"; //theme of application
+  appTheme: DefaultTheme //theme of application
   challengeGrid?: GRID; //grid to be solved
   solvedGrid?: GRID; //solution grid
   workingGrid?: GRID; //current state of grid

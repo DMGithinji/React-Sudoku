@@ -1,3 +1,4 @@
+import { darkTheme } from 'styles';
 import { GRID } from "typings";
 import { AnyAction } from "redux";
 import {
@@ -11,11 +12,16 @@ import * as types from "./types";
 
 const initialState: IReducer = {
   failCount: 0,
-  appTheme: "darkTheme"
+  appTheme: darkTheme
 };
 
 function reducer(state = initialState, action: AnyAction) {
   switch (action.type) {
+    case types.TOGGLE_THEME:
+      return {
+        ...state,
+        appTheme: action.selectedTheme
+      };
     case types.CREATE_GRID:
       const solvedGrid = createFilledSudoku();
       const gridCopy = copyGrid(solvedGrid);
@@ -27,7 +33,7 @@ function reducer(state = initialState, action: AnyAction) {
         solvedGrid,
         challengeGrid,
         workingGrid,
-        failCount
+        failCount,
       };
     case types.SELECT_BLOCK:
       return {

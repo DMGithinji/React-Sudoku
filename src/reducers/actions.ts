@@ -1,3 +1,4 @@
+import { DefaultTheme } from 'styled-components';
 import { BLOCK_COORDS, N } from 'typings';
 import { Action, AnyAction } from 'redux';
 import * as types from './types';
@@ -25,4 +26,13 @@ export const fillBlock = (value: N, coords: BLOCK_COORDS): AnyAction => ({
   coords,
   value,
   type: types.FILL_BLOCK
+})
+
+/**
+ * Action that toggles app theme between dark and light modes
+ * @param selectedTheme
+ */
+export const toggleTheme = (selectedTheme: DefaultTheme):AnyAction => ({
+  selectedTheme,
+  type: types.TOGGLE_THEME
 })

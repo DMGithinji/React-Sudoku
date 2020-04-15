@@ -3,37 +3,18 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { unregister, configureStore } from "core";
-import { GlobalStyles, lightTheme } from "styles";
-import {
-  Content,
-  Title,
-  Card,
-  Grid,
-  NumbersInput,
-  NewGameButton,
-  FailCount
-} from "components";
-import { ThemeProvider } from "styled-components";
+import { App } from "components";
 
-const {persistor, store} = configureStore();
+const { persistor, store } = configureStore();
+const theme = store.getState().appTheme;
+console.log(theme);
 
 ReactDOM.render(
-  <ThemeProvider theme={lightTheme}>
-    <GlobalStyles />
-    <Provider store={store}>
-      <PersistGate loading={null} persistor = {persistor}>
-      <Content data-cy="content">
-        <Title data-cy="title">Sudoku</Title>
-        <Card data-cy="card">
-          <NewGameButton />
-          <Grid />
-          <NumbersInput />
-          <FailCount />
-        </Card>
-      </Content>
-      </PersistGate>
-    </Provider>
-  </ThemeProvider>,
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
   document.getElementById("root")
 );
 
