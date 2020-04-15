@@ -3,21 +3,22 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { unregister, configureStore } from "core";
-import { GlobalStyles, darkTheme } from "styles";
+import { GlobalStyles, lightTheme } from "styles";
 import {
   Content,
   Title,
   Card,
   Grid,
   NumbersInput,
-  NewGameButton
+  NewGameButton,
+  FailCount
 } from "components";
 import { ThemeProvider } from "styled-components";
 
 const {persistor, store} = configureStore();
 
 ReactDOM.render(
-  <ThemeProvider theme={darkTheme}>
+  <ThemeProvider theme={lightTheme}>
     <GlobalStyles />
     <Provider store={store}>
       <PersistGate loading={null} persistor = {persistor}>
@@ -27,6 +28,7 @@ ReactDOM.render(
           <NewGameButton />
           <Grid />
           <NumbersInput />
+          <FailCount />
         </Card>
       </Content>
       </PersistGate>

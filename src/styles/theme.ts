@@ -38,8 +38,8 @@ export const lightTheme = {
     buttonBackgroundColor: "#222",
     buttonBorderColor: "#222",
     buttonFontColor: "#fdfdfd",
-    buttonHoverFontColor: "#222",
-    buttonHoverBackgroundColor: "#fdfdfd",
+    // buttonHoverFontColor: "#fdfdfd",
+    // buttonHoverBackgroundColor: "#444",
   },
   transition: "0.1s"
 };

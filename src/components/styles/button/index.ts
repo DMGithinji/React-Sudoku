@@ -25,8 +25,7 @@ export const Button = styled.button`
     } */
 
     &:hover {
-      background-color: ${theme.colors.buttonHoverBackgroundColor};
-      color: ${theme.colors.buttonHoverFontColor};
+      opacity: 0.95
     }
   `}
 `;
