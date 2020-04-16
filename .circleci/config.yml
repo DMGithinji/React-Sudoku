@@ -12,11 +12,11 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install Dependencies
-          command: npm install      
+          command: npm install
       - save_cache:
           key: 'v1-dependencies-{{ checksum "package.json" }}'
           paths:
-            - node_modules
+            - ./node_modules
       - run: 'npm test'
       - run:
           name: Build
