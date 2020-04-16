@@ -12,7 +12,14 @@ ${({ theme }) => css`
       margin: 0;
       background-color: ${theme.colors.background};
       color: ${theme.colors.fontColor};
-      
+
+      span {
+        color: red;
+        font-weight: bold;
+        font-size: 18px;
+        margin: 0 4px;
+      }
+
       #root {
         display: flex;
         font-family: sans-serif;

@@ -24,9 +24,9 @@ const ToggleTheme: FC = () => {
   return (
     <Button onClick={changeTheme}>
       {state.currentTheme === darkTheme ? (
-        <span>Light Mode</span>
+        <div>Light Mode</div>
       ) : (
-        <span>Dark Mode</span>
+        <div>Dark Mode</div>
       )}
     </Button>
   );
